@@ -7,7 +7,7 @@ import time
 
 
 def initial(request):
-    return render(request, 'base.html', {})
+    return render(request, 'index.html', {})
 
 
 def all_posts(request):
@@ -44,3 +44,11 @@ def edit_post(request, id):
         Post.objects.get(id=id).delete()
 
         return HttpResponse(status=204)
+
+
+def bootstrap(request):
+    return render(request, 'bootstrap.html', {})
+
+
+def page_admin(request):
+    return render(request, 'page_admin.html', {})
