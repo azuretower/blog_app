@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ryan's Blog</title>
+    <link rel=' stylesheet' type='text/css' href="{% static 'css/blog.css' %}"
+</head>
+<body>
+
+    <div id='wrapper'>
+        <h1>This is my blog, there are many like it but this one is mine</h1>
+        <br>
+        <img id='loader' src='{% static "img/infinity.gif" %}'>
+
+        <form id='post_form'>
+
+            {% csrf_token %}
+            <label>Title</label>
+            <input class ='title-box' type="text" name='title'>
+            <br>
+            <br>
+            <label>Content</label>
+            <textarea name='post_content'></textarea>
+            <br>
+            <input  class = 'btn' type="submit" value='Create Post'>
+
+        </form>
+        <br>
+        <button id='load_posts'>Load Posts</button>
+
+        <div id='posts'></div>
+    </div>
+
+
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src='{% static "js/blog.js" %}'></script>
+</body>
+</html>
