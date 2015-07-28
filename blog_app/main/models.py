@@ -9,6 +9,7 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     date_posted = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
+    featured_image = models.ImageField(upload_to='image_uploads', null=True, blank=True)
 
     def __unicode__(self):
         return self.title

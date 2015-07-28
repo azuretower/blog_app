@@ -1,9 +1,31 @@
 
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+    color:#fff;
+    background-color: rgba(255,255,255, .2);
+}
+
+#user-create-form {
+    display: none;
+}
+
+.dropdown-menu {
+    color:#fff;
+    background-color: rgba(255,255,255, .2);
+}
+
+.dropdown-menu>li>a:focus,
+.dropdown-menu>li>a:hover {
+    background-color: transparent;
+}
+
 #loader {
     display: none;
 }
 
-body {
+#admin_body {
     font-family: 'Consolas', 'Arial', sans-sarif;
     background-color: #abcccd;
 }
@@ -22,6 +44,16 @@ article {
     text-align: center;
 }
 
+#featured-image-form {
+    display: none;
+    width: 150px;
+    height: auto;
+}
+
+#cancel-button {
+    display: none;
+}
+
 #wrapper {
     width: 600px;
     margin: auto;
@@ -31,6 +63,7 @@ article {
     -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
 }
 
 #content-box1 {
