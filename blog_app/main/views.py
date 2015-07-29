@@ -105,9 +105,13 @@ def edit_post(request, id):
 
     if request.method == 'DELETE':
 
-        Post.objects.get(id=id).delete()
+        if is_employee(request.user):
 
-        return HttpResponse(status=204)
+            Post.objects.get(id=id).delete()
+
+            return HttpResponse(status=204)
+        else:
+            return HttpResponse(status=401)
 
     elif request.method == 'GET':
         post = Post.objects.get(id=id)

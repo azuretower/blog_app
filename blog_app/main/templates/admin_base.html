@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Post</title>
+    <title>Behind the Scenes</title>
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel=' stylesheet' type='text/css' href="{% static 'css/blog.css' %}">
     <style type="text/css">
@@ -18,6 +18,17 @@
 <body id='admin_body'>
 
     {% include 'nav_bar.html' with admin=True%}
+
+    <div class='container'>
+        <div class='row'>
+            
+            <div id='title-stuff'>
+                <h1>Azure Tower</h1>
+                <h2>Ryan Merrill | Devoloper</h2>
+                <br>
+            </div>
+        </div>
+    </div>
 
     {% block content %}
         

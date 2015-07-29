@@ -21,7 +21,7 @@ $('#switch-to-login').click(function(e){
 /***** Post Admin *****/
 $('.edit_post_link').click(function(e){
     e.preventDefault();
-    var id = $(this).attr('data-post-id');
+    var id = $(this).parent().attr('data-post-id');
 
     $.get('/blog/posts/' + id + '/json/', function(result){
         console.log(result);
@@ -52,6 +52,11 @@ $('.edit_post_link').click(function(e){
 $('#cancel-button').click(function(e){
     e.preventDefault();
 
+    clearForm();
+
+});
+
+function clearForm() {
     $('#post_form input[name="author"').val(global_author);
     $('#post_form input[name="title"').val('');
     $('#post_form textarea[name="text"').val('');
@@ -60,18 +65,21 @@ $('#cancel-button').click(function(e){
 
     $('#submit-button').html('Create Post');
     $('#cancel-button').hide();
+}
 
-})
 
 
+
+/***** DELETE POSTS *****/
 
 var page = 0
 loadPosts(page);
 
-$('#posts').on('click', '.delete', function(){
-
+$('.delete-post-link').click(function(e){
+    e.preventDefault();
+        console.log('success')
     if (confirm('Are you sure you want to delete this post?')) {
-        var id = $(this).parents('article').attr('id');
+        var id = $(this).parent().attr('data-post-id');
 
         $.ajax({
             url: '/blog/posts/' + id + '/',
@@ -80,7 +88,12 @@ $('#posts').on('click', '.delete', function(){
                 xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'))
             },
             success: function() {
-                $('#'+id).remove();
+                $('li[data-post-id=' + id + ']').remove();
+                var current_id = $('#post_form input[name="id"').val();
+
+                if (id === current_id) {
+                    clearForm();
+                }
             }
         })
     }
